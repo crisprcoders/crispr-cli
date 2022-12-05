@@ -1,0 +1,23 @@
+{
+  "name": "crispr-cli",
+  "version": "1.0.0",
+  "description": "Cli tool to automate management task of crispr coders private limited",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crisprcoders/crispr-cli.git"
+  },
+  "keywords": [
+    "cli",
+    "tool"
+  ],
+  "author": "bipin pandey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crisprcoders/crispr-cli/issues"
+  },
+  "homepage": "https://github.com/crisprcoders/crispr-cli#readme"
+}
