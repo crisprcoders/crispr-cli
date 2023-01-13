@@ -1,10 +1,16 @@
 {
   "name": "crispr-cli",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Cli tool to automate management task of crispr coders private limited",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "bin": {
+    "crispr": "./bin/crispr"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "build": "tsc -p .",
+    "watch": "npx tsc -p . --watch",
+    "local": "npm uninstall -g && npm install -g && crispr"
   },
   "repository": {
     "type": "git",
@@ -19,5 +25,34 @@
   "bugs": {
     "url": "https://github.com/crisprcoders/crispr-cli/issues"
   },
-  "homepage": "https://github.com/crisprcoders/crispr-cli#readme"
+  "homepage": "https://github.com/crisprcoders/crispr-cli#readme",
+  "dependencies": {
+    "@types/fs-extra": "^11.0.1",
+    "chalk": "4.1.2",
+    "clear": "^0.1.0",
+    "figlet": "^1.5.2",
+    "fs-extra": "^11.1.0",
+    "inquirer": "^8.2.5",
+    "inversify": "^6.0.1",
+    "kleur": "^4.1.5",
+    "nodemon": "^2.0.20",
+    "ora": "^3.2.0",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.4.1"
+  },
+  "devDependencies": {
+    "@liftr/tscov": "^2.0.0",
+    "@types/clear": "^0.1.2",
+    "@types/figlet": "^1.5.5",
+    "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.11.18",
+    "ts-node": "^10.9.1",
+    "typedoc": "^0.23.24",
+    "typescript": "^4.9.4"
+  },
+  "resolutions": {
+    "chalk": "4.1.2",
+    "ora": "^3.2.0",
+    "minimist": "1.2.7"
+  }
 }
