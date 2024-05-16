@@ -60,10 +60,23 @@ export function createFile(
   fileAlreadyExists = false
 ): void {
   const fileFullPath = getFilePath(`${filePath}/${fileName}`);
-  console.log("her", fileFullPath);
   // @ts-ignore
   fs.writeFile(fileFullPath, fileContent, {}, (error: Error) => {
-    console.log("her: 2", error);
+    if (!error && !fileAlreadyExists) return showCreate(fileName, fileFullPath);
+    if (!error && fileAlreadyExists) return showUpdate(fileName, fileFullPath);
+    return showError(error);
+  });
+}
+
+export function appendFile(
+  filePath: string,
+  fileName: string,
+  fileContent: string,
+  fileAlreadyExists = false
+): void {
+  const fileFullPath = getFilePath(`${filePath}/${fileName}`);
+  // @ts-ignore
+  fs.appendFile(fileFullPath, fileContent, (error: Error) => {
     if (!error && !fileAlreadyExists) return showCreate(fileName, fileFullPath);
     if (!error && fileAlreadyExists) return showUpdate(fileName, fileFullPath);
     return showError(error);

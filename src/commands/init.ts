@@ -17,12 +17,8 @@ export const init = new Command("init").action(async () => {
   const initAnswer: Answer = await initQuestion();
   console.log("initAnswer", initAnswer);
   checkIfDirExistElseMakeDir(filePath);
-  console.log(":1");
   const fileExists = checkExistence(`${filePath}/${fileNameWithExt}`);
-
-  console.log(":2", fileExists);
   if (!fileExists) {
-    console.log(":3");
     return createFile(filePath, fileNameWithExt, JSON.stringify(initAnswer));
   }
   return overwriteFileOrThrowError(
@@ -42,8 +38,4 @@ init.command("env").action(async () => {
   // do work
   await new Promise((resolve) => setTimeout(resolve, 1000)); // emulate work
   spinnerSuccess();
-  console.table([
-    { id: 1, name: "Tommy" },
-    { id: 2, name: "Bob" },
-  ]);
 });

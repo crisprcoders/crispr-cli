@@ -14,8 +14,9 @@ console.log(
 );
 
 const program = new Command();
-program.description("Clit tool for efficient person");
+program.description("Cli tool for efficient person");
 program.version("0.0.1");
+
 program.addCommand(widgets);
 program.addCommand(init);
 program.addCommand(config);
