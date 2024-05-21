@@ -6,6 +6,8 @@ import { Command } from "commander";
 import { widgets } from "./commands/widgets";
 import { init } from "./commands/init";
 import { config } from "./commands/config";
+//import feature
+import { feature } from "./commands/feature";
 import { spinnerError, stopSpinner } from "./utils/spinner";
 
 // clear({ fullClear: true });
@@ -20,6 +22,8 @@ program.version("0.0.1");
 program.addCommand(widgets);
 program.addCommand(init);
 program.addCommand(config);
+//adding feature command
+program.addCommand(feature);
 
 process.on("unhandledRejection", function (err: Error) {
   // listen for unhandled promise rejections
