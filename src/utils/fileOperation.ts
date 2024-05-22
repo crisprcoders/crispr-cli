@@ -102,3 +102,9 @@ export const showUpdate = (fileName: string, filePath: string): void => {
     ? console.log(green(ConsoleMessage.UPDATE) + `${fileName} in ${filePath}`)
     : console.log(green(ConsoleMessage.UPDATE) + `${fileName}`);
 };
+
+export const logActivity = async (message: string): Promise<void> => {
+  const logFilePath = getFilePath("crispr-activity.log");
+  const logMessage = `${new Date().toISOString()} - ${message}\n`;
+  await fs.promises.appendFile(logFilePath, logMessage);
+};

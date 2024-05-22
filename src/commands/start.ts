@@ -1,9 +1,20 @@
 import { Command } from "commander";
+import { logActivity } from "../utils/fileOperation";
+import { createFeatureFiles } from "../utils/createFeatureFiles";
 
 export const start = new Command("start");
-
-//adding feature cli
 start.command("feature <featureCode>").action(async (featureCode: string) => {
-  console.log(process.cwd());
-  console.log("Feature adding cli");
+  try {
+    console.log(`Starting feature creation for: ${featureCode}`);
+    await logActivity(`Starting feature creation for: ${featureCode}`);
+
+    await createFeatureFiles(featureCode);
+
+    console.log("Feature creation completed.");
+    await logActivity("Feature creation completed.");
+  } catch (error: any) {
+    console.error(`Failed to create feature: ${error.message}`);
+    await logActivity(`Failed to create feature: ${error.message}`);
+    process.exit(1);
+  }
 });
